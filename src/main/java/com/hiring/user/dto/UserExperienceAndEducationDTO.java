@@ -1,4 +1,4 @@
-package com.hiring.user;
+package com.hiring.user.dto;
 import java.time.LocalDate;
 
 public class UserExperienceAndEducationDTO {

@@ -1,7 +1,5 @@
-package com.hiring.education;
+package com.hiring.user;
 import java.time.LocalDate;
-
-import com.hiring.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "educations")
-public class Education {
+public class UserEducation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,11 +83,11 @@ public class Education {
 		this.user = user;
 	}
 
-	public Education() {
+	public UserEducation() {
 		super();
 	}
 
-	public Education(Long educationId, String institution, String degree, String major, LocalDate graduationDate,
+	public UserEducation(Long educationId, String institution, String degree, String major, LocalDate graduationDate,
 			User user) {
 		super();
 		this.educationId = educationId;

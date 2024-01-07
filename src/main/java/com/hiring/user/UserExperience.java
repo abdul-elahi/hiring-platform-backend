@@ -1,7 +1,5 @@
-package com.hiring.experience;
+package com.hiring.user;
 import java.time.LocalDate;
-
-import com.hiring.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "experiences")
-public class Experience {
+public class UserExperience {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +38,7 @@ public class Experience {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-	public Experience() {
+	public UserExperience() {
 		super();
 	}
 
@@ -100,7 +98,7 @@ public class Experience {
 		this.user = user;
 	}
 
-	public Experience(Long experienceId, String company, String position, LocalDate startDate, LocalDate endDate,
+	public UserExperience(Long experienceId, String company, String position, LocalDate startDate, LocalDate endDate,
 			String responsibilities, User user) {
 		super();
 		this.experienceId = experienceId;

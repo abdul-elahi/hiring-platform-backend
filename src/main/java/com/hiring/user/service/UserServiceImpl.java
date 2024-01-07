@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hiring.commons.Document;
-import com.hiring.education.repository.EducationRepositoy;
 import com.hiring.exception.ApplicationException;
-import com.hiring.experience.repository.ExperienceRepository;
 import com.hiring.user.User;
-import com.hiring.user.UserExperienceAndEducationDTO;
 import com.hiring.user.UserResume;
+import com.hiring.user.dto.UserExperienceAndEducationDTO;
 import com.hiring.user.dto.UserRegisterDTO;
+import com.hiring.user.repository.UserEducationRepositoy;
+import com.hiring.user.repository.UserExperienceRepository;
 import com.hiring.user.repository.UserRepository;
 import com.hiring.user.repository.UserResumeRepositiry;
 import com.hiring.utils.SaveFilesToLocation;
@@ -32,10 +32,10 @@ public class UserServiceImpl implements UserService {
 	UserRepository userRepository;
 
 	@Autowired
-	ExperienceRepository experienceRepository;
+	UserExperienceRepository experienceRepository;
 
 	@Autowired
-	EducationRepositoy educationRepositoy;
+	UserEducationRepositoy educationRepositoy;
 
 	@Autowired
 	UserResumeRepositiry userResumeRepositiry;
