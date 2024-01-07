@@ -9,11 +9,17 @@ public class UserExperienceAndEducationDTO {
     private String mobileNumber;
     
     private String company;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String position;
     private Integer experience;
+    
     private String degree;
+    private String institution;
     private String major;
     private LocalDate graduationDate;
+    
+    private String resumeLocaton;
 
     public UserExperienceAndEducationDTO() {
     	
@@ -99,20 +105,61 @@ public class UserExperienceAndEducationDTO {
 		this.graduationDate = graduationDate;
 	}
 
+	
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getInstitution() {
+		return institution;
+	}
+
+	public void setInstitution(String institution) {
+		this.institution = institution;
+	}
+
+	public String getResumeLocaton() {
+		return resumeLocaton;
+	}
+
+	public void setResumeLocaton(String resumeLocaton) {
+		this.resumeLocaton = resumeLocaton;
+	}
+
+
+
+	
 	public UserExperienceAndEducationDTO(String firstName, String lastName, String email, String mobileNumber,
-			String company, String position, Integer experience, String degree, String major,
-			LocalDate graduationDate) {
+			String company, LocalDate startDate, LocalDate endDate, String position, Integer experience, String degree,
+			String institution, String major, LocalDate graduationDate, String resumeLocaton) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.mobileNumber = mobileNumber;
 		this.company = company;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.position = position;
 		this.experience = experience;
 		this.degree = degree;
+		this.institution = institution;
 		this.major = major;
 		this.graduationDate = graduationDate;
+		this.resumeLocaton = resumeLocaton;
 	}
 
 	@Override

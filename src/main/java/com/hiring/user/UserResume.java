@@ -7,25 +7,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class UserResume {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "iduser_resume")
 	private Long idUserResume;
-
-	@Column(name = "user_id")
-	private Long userId;
 
 	@Column(name = "file_name")
 	private String fileName;
 
 	@Column(name = "file_location")
 	private String fileLocation;
-	
+
+	@Column(name = "created_at")
 	private Instant createdAt;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 
 	public UserResume() {
 		super();
@@ -39,12 +43,12 @@ public class UserResume {
 		this.idUserResume = idUserResume;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getFileName() {
@@ -71,27 +75,18 @@ public class UserResume {
 		this.createdAt = createdAt;
 	}
 
-	public UserResume(Long idUserResume, Long userId, String fileName, String fileLocation) {
-		super();
-		this.idUserResume = idUserResume;
-		this.userId = userId;
-		this.fileName = fileName;
-		this.fileLocation = fileLocation;
-	}
-	
-	public UserResume(Long userId, String fileName, String fileLocation,Instant createdAt) {
+	public UserResume(User user, String fileName, String fileLocation, Instant createdAt) {
 		super();
 		this.createdAt = createdAt;
-		this.userId = userId;
+		this.user = user;
 		this.fileName = fileName;
 		this.fileLocation = fileLocation;
 	}
 
 	@Override
 	public String toString() {
-		return "UserResume [idUserResume=" + idUserResume + ", userId=" + userId + ", fileName=" + fileName
+		return "UserResume [idUserResume=" + idUserResume + ", userId=" + user + ", fileName=" + fileName
 				+ ", fileLocation=" + fileLocation + "]";
 	}
-	
-	
+
 }

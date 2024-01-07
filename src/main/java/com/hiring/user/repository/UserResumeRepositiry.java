@@ -6,4 +6,8 @@ import com.hiring.user.UserResume;
 
 public interface UserResumeRepositiry extends JpaRepository<UserResume, Long> {
 
+	boolean existsByUserUserId(Long userId);
+
+	UserResume getByUserUserId(Long userId);
+
 }

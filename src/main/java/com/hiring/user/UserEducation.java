@@ -1,4 +1,5 @@
 package com.hiring.user;
+
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -14,26 +15,26 @@ import jakarta.persistence.Table;
 @Table(name = "educations")
 public class UserEducation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "education_id")
-    private Long educationId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "education_id")
+	private Long educationId;
 
-    @Column(name = "institution", nullable = false)
-    private String institution;
+	@Column(name = "institution", nullable = false)
+	private String institution;
 
-    @Column(name = "degree", nullable = false)
-    private String degree;
+	@Column(name = "degree", nullable = false)
+	private String degree;
 
-    @Column(name = "major", nullable = false)
-    private String major;
+	@Column(name = "major", nullable = false)
+	private String major;
 
-    @Column(name = "graduation_date", nullable = false)
-    private LocalDate graduationDate;
+	@Column(name = "graduation_date", nullable = false)
+	private LocalDate graduationDate;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 
 	public Long getEducationId() {
 		return educationId;
@@ -97,7 +98,15 @@ public class UserEducation {
 		this.graduationDate = graduationDate;
 		this.user = user;
 	}
-    
-    
+
+	public UserEducation(String institution, String degree, String major, LocalDate graduationDate, User user) {
+		super();
+
+		this.institution = institution;
+		this.degree = degree;
+		this.major = major;
+		this.graduationDate = graduationDate;
+		this.user = user;
+	}
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hiring.commons.Document;
+import com.hiring.user.dto.UserRegisterCompleteDTO;
 import com.hiring.user.dto.UserRegisterDTO;
 import com.hiring.user.service.UserService;
 
@@ -34,16 +35,21 @@ public class UserController {
 		return ResponseEntity.status(user.getStatusCode()).body(user);
 	}
 
-	@PostMapping(value = "/save-new-user", consumes = { "multipart/form-data" })
+	@PostMapping(value = "/save-new-user")
 	ResponseEntity<?> saveNewUser(@RequestBody UserRegisterDTO user) {
 		Document<?> document = userService.saveNewUser(user);
+		return ResponseEntity.status(document.getStatusCode()).body(document);
+	}
+	
+	@PostMapping(value = "/save-new-candidate")
+	ResponseEntity<?> saveNewCandidate(@RequestBody UserRegisterCompleteDTO user) {
+		Document<?> document = userService.saveNewCandidate(user);
 		return ResponseEntity.status(document.getStatusCode()).body(document);
 	}
 
 	@PostMapping(value = "/save-file", consumes = { "multipart/form-data" })
 	ResponseEntity<?> saveFile(@RequestParam("resume") MultipartFile resume, Long userId) {
 		Document<?> document = userService.uploadResumeForUser(resume,userId);
-		System.out.println("Uploading");
 		return  ResponseEntity.status(document.getStatusCode()).body(document);
 	}
 

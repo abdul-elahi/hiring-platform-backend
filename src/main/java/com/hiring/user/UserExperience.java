@@ -33,6 +33,9 @@ public class UserExperience {
 
     @Column(name = "responsibilities")
     private String responsibilities;
+    
+    @Column(name="experience")
+    private Integer experience;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -48,6 +51,14 @@ public class UserExperience {
 
 	public void setExperienceId(Long experienceId) {
 		this.experienceId = experienceId;
+	}
+
+	public Integer getExperience() {
+		return experience;
+	}
+
+	public void setExperience(Integer experience) {
+		this.experience = experience;
 	}
 
 	public String getCompany() {
@@ -108,6 +119,25 @@ public class UserExperience {
 		this.endDate = endDate;
 		this.responsibilities = responsibilities;
 		this.user = user;
+	}
+
+	public UserExperience(String company, String position, LocalDate startDate, LocalDate endDate,
+			String responsibilities,Integer experience, User user) {
+		super();
+		this.experience = experience;
+		this.company = company;
+		this.position = position;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.responsibilities = responsibilities;
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "UserExperience [experienceId=" + experienceId + ", company=" + company + ", position=" + position
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", responsibilities=" + responsibilities
+				+ ", user=" + user + "]";
 	}
     
     
