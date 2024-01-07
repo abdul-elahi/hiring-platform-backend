@@ -1,6 +1,7 @@
 package com.hiring.user;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +37,8 @@ public class User {
     private String role; 
 
     @Column(name = "registration_date", nullable = false)
-    private LocalDateTime registrationDate;
+    private Instant registrationDate;
+    
 
     @Column(name = "is_active", columnDefinition = "boolean default true")
     private boolean isActive;
@@ -97,11 +99,11 @@ public class User {
 		this.role = role;
 	}
 
-	public LocalDateTime getRegistrationDate() {
+	public Instant getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(LocalDateTime registrationDate) {
+	public void setRegistrationDate(Instant registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 
@@ -118,7 +120,7 @@ public class User {
 	}
 
 	public User(Long userId, String firstName, String lastName, String password, String email, String mobileNumber,
-			String role, LocalDateTime registrationDate, boolean isActive) {
+			String role, Instant registrationDate, boolean isActive) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -129,6 +131,18 @@ public class User {
 		this.role = role;
 		this.registrationDate = registrationDate;
 		this.isActive = isActive;
+	}
+	
+	public User(String firstName, String lastName, String password, String email, String mobileNumber, String role,
+			Instant registrationDate) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.role = role;
+		this.registrationDate = registrationDate;
 	}
 
 	@Override

@@ -1,9 +1,10 @@
 package com.hiring.user.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hiring.commons.Document;
-import com.hiring.user.User;
+import com.hiring.user.dto.UserRegisterDTO;
 
 @Service
 public interface UserService {
@@ -12,8 +13,10 @@ public interface UserService {
 
 	Document<?> findByUserId(Long id);
 
-	Document<?> saveNewUser(User user);
-
 	Document<?> getUsersDataCompletely();
+
+	Document<?> saveNewUser(UserRegisterDTO userRegisterDTO);
+
+	Document<?> uploadResumeForUser(MultipartFile resume, Long userId);
 
 }
